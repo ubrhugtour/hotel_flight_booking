@@ -144,8 +144,8 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 }
 
 .innerpage-section-padding{
-	padding-top:103px;
-	padding-bottom:147px;
+	padding-top:65px;
+	padding-bottom:71px;
 }
 
 .innerpage-banner-padding{
@@ -1180,11 +1180,14 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 .main-img{
 	position:relative;
 	overflow:hidden;
+	height: 203px
 }
 
-.main-img img{
-	width:100%;
-	transition:.4s;
+.main-img img {
+    width: 100%;
+    transition: .4s;
+    height: 208px;
+    object-fit: cover;
 }
 
 .main-info .main-title a{
@@ -1722,7 +1725,9 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
    ----------------------------------------------------- */
 
 .luxury-img img{
-	width:100%;
+    width: 100%;
+    height: 330;
+    object-fit: cover;
 }
 
 .luxury-text h2{
@@ -1762,7 +1767,7 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 }
 
 .luxury-room-block img{
-	padding:1px;
+	padding:4px;
 }
 
 .luxury-room-block:nth-child(odd){
@@ -2260,7 +2265,7 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 .h-pkg-price span{
 	display:block;
 	font-size:18px;
-	margin-top:-20px;
+	margin-top:3px;
 }
 
 .hotel-package .pkg-features{
@@ -3611,7 +3616,7 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 }
 
 .custom-form form{
-	margin-top:40px;
+	margin-top:18px;
 }
 
 .custom-form .form-group{
@@ -3979,6 +3984,8 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 
 .member-name{
 	padding:16px;
+	font-size: 3px;
+    height: 115px;
 }
 
 .member-name h3{
@@ -4096,9 +4103,10 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 }
 
 #owl-company-logo .item img {
-    max-width: 100%;
-    max-height: 130px;
+    max-width: 77%;
+    height: 86px;
     display: inline-block;
+    margin: 2px 15px;
 }
 
 /************** ERROR PAGE **************/
@@ -5766,4 +5774,37 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 #contact-form-2 form .btn{
 	padding:7px 55px 8px;
 	margin-top:15px;
+}
+
+.validation_error > h5 {
+    text-align: center;
+    color: #ff0000;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+}
+span.logo > img {
+    height: 60px;
+}
+
+.navbar-default {
+    background-color: #fff!important;
+     border-color: #fff!important; 
+}
+button.btn.btn-block.btn-primary.btn-lg > a {
+    color: #fff;
+}
+
+
+.btn-primary {
+    
+    width: auto!important;
+}
+
+.navbar {
+	margin-bottom: 0px!important; 
+}
+
+.aboutLogo{
+	height: 53px;
+	float: left;
 }

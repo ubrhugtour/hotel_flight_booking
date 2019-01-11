@@ -15,10 +15,51 @@ class HotelHomepge extends Component {
 
  componentDidMount(){
     document.title = "Hotels"
-  }
-	
-render () {
 
+    $('.flexslider').flexslider({
+      animation: "slide",
+      start: function(slider){
+          $('body').removeClass('loading');
+      },
+      flexDirectionNav: false,
+      controlNav: false,
+    });
+
+    
+  $("#owl-hotel-offers").owlCarousel({
+    items : 3,
+    itemsCustom : false,
+    itemsDesktop : [1199,3],
+    itemsDesktopSmall : [991,2],
+    itemsTablet: [768,2],
+    itemsTabletSmall: [600,1],
+    itemsMobile : [479,1],
+    singleItem : false,
+    itemsScaleUp : false,
+  
+    //Autoplay
+    autoPlay : true,
+    stopOnHover : true,
+   
+    // Navigation
+    navigation : true,
+    navigationText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+    rewindNav : true,
+    scrollPerPage : false,
+   
+    //Pagination
+    pagination : false,
+    paginationNumbers: false,
+   
+    // Responsive 
+    responsive: true,
+    responsiveRefreshRate : 200,
+    responsiveBaseWidth: window,    
+  });
+  }
+  
+render () {
+  
 
     
 
@@ -26,7 +67,7 @@ render () {
       <div>
         {/*====== LOADER =====*/}
         {/*======== SEARCH-OVERLAY =========*/}       
-        <Search/>
+        {/*<Search/>*/}
         {/* end overlay */}
         {/*============= TOP-BAR ===========*/}
         <TopBar/>
@@ -40,23 +81,22 @@ render () {
            {/* end mySidenav */}
           
           <div className="flexslider slider" id="slider-3">
-	            <ul className="slides">
-	              <li className="item-1 back-size" style={{background: 'linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(../../Dist/images/hotel-slider-1.jpg) 50% 65%', backgroundSize: 'cover', height: '100%'}}>
-	              </li>{/* end item-1 */}
-	              <li className="item-2 back-size" style={{background: 'linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(../../Dist/images/hotel-slider-1.jpg) 50% 65%', backgroundSize: 'cover', height: '100%'}}>
-	              </li>{/* end item-2 */}
-	            </ul>
+              <ul className="slides">
+                <li className="item-1 back-size hotel-banners1" >
+                </li>{/* end item-1 */}
+                <li className="item-2 back-size hotel-banners2" >
+                </li>{/* end item-2 */}
+              </ul>
           </div>{/* end slider */}
           <div className="search-tabs" id="search-tabs-3">
             <div className="container">
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 no-pd-r">
                   <ul className="nav nav-tabs">
-                    <li><a href="#flights" data-toggle="tab"><span><i className="fa fa-plane" /></span><span className="st-text">Flights</span></a></li>
-                    <li className="active"><a href="#hotels" data-toggle="tab"><span><i className="fa fa-building" /></span><span className="st-text">Hotels</span></a></li>
-                    <li><a href="#tours" data-toggle="tab"><span><i className="fa fa-suitcase" /></span><span className="st-text">Tours</span></a></li>
-                    <li><a href="#cruise" data-toggle="tab"><span><i className="fa fa-ship" /></span><span className="st-text">Cruise</span></a></li>
-                    <li><a href="#cars" data-toggle="tab"><span><i className="fa fa-car" /></span><span className="st-text">Cars</span></a></li>
+                    <li className="active"><a href={null} data-toggle="tab"><span><i className="fa fa-building" /></span><span className="st-text">Hotels</span></a></li>
+                    <li><a href={null} data-toggle="tab"><span><i className="fa fa-suitcase" /></span><span className="st-text">Tours</span></a></li>
+                    <li><a href={null} data-toggle="tab"><span><i className="fa fa-ship" /></span><span className="st-text">Cruise</span></a></li>
+                    <li><a href={null} data-toggle="tab"><span><i className="fa fa-car" /></span><span className="st-text">Cars</span></a></li>
                   </ul>
                   <div className="tab-content">
                     <div id="flights" className="tab-pane">
@@ -78,7 +118,7 @@ render () {
                                   <i className="fa fa-map-marker" />
                                 </div>
                               </div>{/* end columns */}
-                            </div>{/* end row */}								
+                            </div>{/* end row */}               
                           </div>{/* end columns */}
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="row">
@@ -96,13 +136,13 @@ render () {
                                   <i className="fa fa-calendar" />
                                 </div>
                               </div>{/* end columns */}
-                            </div>{/* end row */}								
+                            </div>{/* end row */}               
                           </div>{/* end columns */}
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="form-group right-icon">
                               <label>Adults</label>
                               <select className="form-control">
-                                <option selected>01</option>
+                                <option defaultValue>01</option>
                                 <option>02</option>
                                 <option>03</option>
                                 <option>04</option>
@@ -135,7 +175,7 @@ render () {
                                   <i className="fa fa-calendar" />
                                 </div>
                               </div>{/* end columns */}
-                            </div>{/* end row */}								
+                            </div>{/* end row */}               
                           </div>{/* end columns */}
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="row">
@@ -143,7 +183,7 @@ render () {
                                 <div className="form-group right-icon">
                                   <label>Rooms</label>
                                   <select className="form-control">
-                                    <option selected>01</option>
+                                    <option defaultValue>01</option>
                                     <option>02</option>
                                     <option>03</option>
                                     <option>04</option>
@@ -155,7 +195,7 @@ render () {
                                 <div className="form-group right-icon">
                                   <label>Adults</label>
                                   <select className="form-control">
-                                    <option selected>01</option>
+                                    <option defaultValue>01</option>
                                     <option>02</option>
                                     <option>03</option>
                                     <option>04</option>
@@ -167,7 +207,7 @@ render () {
                                 <div className="form-group right-icon">
                                   <label>Kids</label>
                                   <select className="form-control">
-                                    <option selected>01</option>
+                                    <option defaultValue>01</option>
                                     <option>02</option>
                                     <option>03</option>
                                     <option>04</option>
@@ -197,7 +237,7 @@ render () {
                             <div className="form-group right-icon">
                               <label>Month</label>
                               <select className="form-control">
-                                <option selected>January</option>
+                                <option defaultValue>January</option>
                                 <option>February</option>
                                 <option>March</option>
                                 <option>April</option>
@@ -219,7 +259,7 @@ render () {
                                 <div className="form-group right-icon">
                                   <label>Adults</label>
                                   <select className="form-control">
-                                    <option selected>01</option>
+                                    <option defaultValue>01</option>
                                     <option>02</option>
                                     <option>03</option>
                                     <option>04</option>
@@ -231,7 +271,7 @@ render () {
                                 <div className="form-group right-icon">
                                   <label>Kids</label>
                                   <select className="form-control">
-                                    <option selected>01</option>
+                                    <option defaultValue>01</option>
                                     <option>02</option>
                                     <option>03</option>
                                     <option>04</option>
@@ -266,7 +306,7 @@ render () {
                                   <i className="fa fa-map-marker" />
                                 </div>
                               </div>{/* end columns */}
-                            </div>{/* end row */}								
+                            </div>{/* end row */}               
                           </div>{/* end columns */}
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="row">
@@ -284,13 +324,13 @@ render () {
                                   <i className="fa fa-calendar" />
                                 </div>
                               </div>{/* end columns */}
-                            </div>{/* end row */}								
+                            </div>{/* end row */}               
                           </div>{/* end columns */}
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="form-group right-icon">
                               <label>Adults</label>
                               <select className="form-control">
-                                <option selected>01</option>
+                                <option defaultValue>01</option>
                                 <option>02</option>
                                 <option>03</option>
                                 <option>04</option>
@@ -305,7 +345,7 @@ render () {
                       </form>
                     </div>{/* end cruises */}
                     <div id="cars" className="tab-pane">
-                      <form>					
+                      <form>          
                         <div className="row">
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="row">
@@ -353,7 +393,7 @@ render () {
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-2 search-btn">
                             <button className="btn btn-orange">Search</button>
                           </div>{/* end columns */}
-                        </div>{/* end row */}					
+                        </div>{/* end row */}         
                       </form>
                     </div>{/* end cars */}
                   </div>{/* end tab-content */}
@@ -361,9 +401,9 @@ render () {
                 <div className="hidden-xs hidden-sm col-md-6 no-pd-l">
                   <div className="welcome-message">
                     <h2>Find Your Perfect Plan</h2>
-                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper, imeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
-                    <a href="#" className="btn btn-w-border">Explore More</a>
+{/*                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper, imeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
+                                  <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
+                    */}      <a href={null} className="btn btn-w-border">Explore More</a>
                   </div>
                 </div>
               </div>{/* end row */}
@@ -379,39 +419,36 @@ render () {
                 <div className="b-feature-block">
                   <span><i className="fa fa-dollar" /></span>
                   <h3>Best Price Guarantee</h3>
-                  <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
                 </div>{/* end b-feature-block */}
               </div>{/* end columns */}
               <div className="col-sm-6 col-md-3">
                 <div className="b-feature-block">
                   <span><i className="fa fa-lock" /></span>
                   <h3>Safe and Secure</h3>
-                  <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
                 </div>{/* end b-feature-block */}
               </div>{/* end columns */}
               <div className="col-sm-6 col-md-3">
                 <div className="b-feature-block">
                   <span><i className="fa fa-thumbs-up" /></span>
                   <h3>Best Travel Agents</h3>
-                  <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
                 </div>{/* end b-feature-block */}
               </div>{/* end columns */}
               <div className="col-sm-6 col-md-3">
                 <div className="b-feature-block">
                   <span><i className="fa fa-bars" /></span>
                   <h3>Travel Guidelines</h3>
-                  <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis.</p>
                 </div>{/* end b-feature-block */}
               </div>{/* end columns */}
             </div>{/* end row */}
           </div>{/* end container */}
-        </section>{/* end best-features */}
+        </section>
+        {/* end best-features */}
         {/*=============== HOTEL OFFERS ===============*/}
         <section id="hotel-offers" className="section-padding">
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
-                <div className="page-heading white-heading">
+                <div className="page-heading">
                   <h2>Hotels Offers</h2>
                   <hr className="heading-line" />
                 </div>{/* end page-heading */}
@@ -419,8 +456,8 @@ render () {
                   <div className="item">
                     <div className="main-block hotel-block">
                       <div className="main-img">
-                        <a href="hotel-detail-right-sidebar.html">
-                          <img src="../../Dist/images/hotel-1.jpg" className="img-responsive" alt="hotel-img" />
+                        <a href='/HotelDetail'>
+                          <img src="../../Dist/images/123294690.jpg" className="img-responsive" alt="hotel-img" />
                         </a>
                         <div className="main-mask">
                           <ul className="list-unstyled list-inline offer-price-1">
@@ -437,10 +474,10 @@ render () {
                       </div>{/* end offer-img */}
                       <div className="main-info hotel-info">
                         <div className="arrow">
-                          <a href="hotel-detail-right-sidebar.html"><span><i className="fa fa-angle-right" /></span></a>
+                          <a href={null}><span><i className="fa fa-angle-right" /></span></a>
                         </div>{/* end arrow */}
                         <div className="main-title hotel-title">
-                          <a href="hotel-detail-right-sidebar.html">Herta Berlin Hotel</a>
+                          <a href={null}>Herta Berlin Hotel</a>
                           <p>From: Scotland</p>
                         </div>{/* end hotel-title */}
                       </div>{/* end hotel-info */}
@@ -449,8 +486,8 @@ render () {
                   <div className="item">
                     <div className="main-block hotel-block">
                       <div className="main-img">
-                        <a href="hotel-detail-right-sidebar.html">
-                          <img src="../../Dist/images/hotel-2.jpg" className="img-responsive" alt="hotel-img" />
+                        <a href='/HotelDetail'>
+                          <img src="../../Dist/images/3.jpg" className="img-responsive" alt="hotel-img" />
                         </a>
                         <div className="main-mask">
                           <ul className="list-unstyled list-inline offer-price-1">
@@ -467,10 +504,10 @@ render () {
                       </div>{/* end offer-img */}
                       <div className="main-info hotel-info">
                         <div className="arrow">
-                          <a href="hotel-detail-right-sidebar.html"><span><i className="fa fa-angle-right" /></span></a>
+                          <a href={null}><span><i className="fa fa-angle-right" /></span></a>
                         </div>{/* end arrow */}
                         <div className="main-title hotel-title">
-                          <a href="hotel-detail-right-sidebar.html">Roosevelt Hotel</a>
+                          <a href="#">Roosevelt Hotel</a>
                           <p>From: Germany</p>
                         </div>{/* end hotel-title */}
                       </div>{/* end hotel-info */}
@@ -479,8 +516,8 @@ render () {
                   <div className="item">
                     <div className="main-block hotel-block">
                       <div className="main-img">
-                        <a href="hotel-detail-right-sidebar.html">
-                          <img src="../../Dist/images/hotel-3.jpg" className="img-responsive" alt="hotel-img" />
+                        <a href='/HotelDetail'>
+                          <img src="../../Dist/images/swimming-pool.jpg" className="img-responsive" alt="hotel-img" />
                         </a>
                         <div className="main-mask">
                           <ul className="list-unstyled list-inline offer-price-1">
@@ -497,10 +534,10 @@ render () {
                       </div>{/* end offer-img */}
                       <div className="main-info hotel-info">
                         <div className="arrow">
-                          <a href="hotel-detail-right-sidebar.html"><span><i className="fa fa-angle-right" /></span></a>
+                          <a href={null}><span><i className="fa fa-angle-right" /></span></a>
                         </div>{/* end arrow */}
                         <div className="main-title hotel-title">
-                          <a href="hotel-detail-right-sidebar.html">Hotel Fort De</a>
+                          <a href={null}>Hotel Fort De</a>
                           <p>From: Austria</p>
                         </div>{/* end hotel-title */}
                       </div>{/* end hotel-info */}
@@ -509,10 +546,10 @@ render () {
                   <div className="item">
                     <div className="main-block hotel-block">
                       <div className="main-img">
-                        <a href="hotel-detail-right-sidebar.html">
-                          <img src="../../Dist/images/hotel-4.jpg" className="img-responsive" alt="hotel-img" />
+                        <a href='/HotelDetail'>
+                          <img src="../../Dist/images/1.jpg" className="img-responsive" alt="hotel-img" />
                         </a>
-                        <div className="main-mask">
+                        <div className="main-mask">1
                           <ul className="list-unstyled list-inline offer-price-1">
                             <li className="price">$568.00<span className="divider">|</span><span className="pkg">Avg/Night</span></li>
                             <li className="rating">
@@ -527,10 +564,10 @@ render () {
                       </div>{/* end offer-img */}
                       <div className="main-info hotel-info">
                         <div className="arrow">
-                          <a href="hotel-detail-right-sidebar.html"><span><i className="fa fa-angle-right" /></span></a>
+                          <a href="#"><span><i className="fa fa-angle-right" /></span></a>
                         </div>{/* end arrow */}
                         <div className="main-title hotel-title">
-                          <a href="hotel-detail-right-sidebar.html">Roosevelt Hotel</a>
+                          <a href="#">Roosevelt Hotel</a>
                           <p>From: Germany</p>
                         </div>{/* end hotel-title */}
                       </div>{/* end hotel-info */}
@@ -538,12 +575,13 @@ render () {
                   </div>{/* end item */}
                 </div>{/* end owl-hotel-offers */}
                 <div className="view-all text-center">
-                  <a href="hotel-grid-right-sidebar.html" className="btn btn-orange">View All</a>
+                  <a href="#" className="btn btn-orange">View All</a>
                 </div>{/* end view-all */}
               </div>{/* end columns */}
             </div>{/* end row */}
           </div>{/* end container */}
-        </section>{/* end hotel-offers */}
+        </section>
+        {/* end hotel-offers */}
         {/*=============== LUXURY ROOMS ===============*/}
         <section id="luxury-rooms" className="section-padding">
           <div className="container">
@@ -552,31 +590,31 @@ render () {
                 <div className="row">
                   <div className="col-xs-6 col-sm-6 luxury-room-block">
                     <a href="../../Dist/images/luxury-room-1.jpg" title="image-7" className="with-caption gallery image-link">
-                      <img className="img-responsive" src="../../Dist/images/luxury-room-1.jpg" alt="luxury-room-img" />
+                      <img className="img-responsive" src="../../Dist/images/midcentury-living-room_0.jpg" alt="luxury-room-img" />
                     </a>
                   </div>
                   <div className="col-xs-6 col-sm-6 luxury-room-block">
                     <a href="../../Dist/images/luxury-room-2.jpg" title="image-7" className="with-caption gallery image-link">
-                      <img className="img-responsive" src="../../Dist/images/luxury-room-2.jpg" alt="luxury-room-img" />
+                      <img className="img-responsive" src="../../Dist/images/c7beb487b2b54736cfcb842d02463724.jpg" alt="luxury-room-img" />
                     </a>
                   </div>
                   <div className="col-xs-6 col-sm-6 luxury-room-block">
                     <a href="../../Dist/images/luxury-room-3.jpg" title="image-7" className="with-caption gallery image-link">
-                      <img className="img-responsive" src="../../Dist/images/luxury-room-3.jpg" alt="luxury-room-img" />
+                      <img className="img-responsive" src="../../Dist/images/171102-lavish-hotel-ro.jpg" alt="luxury-room-img" />
                     </a>
                   </div>
                   <div className="col-xs-6 col-sm-6 luxury-room-block">
                     <a href="../../Dist/images/luxury-room-4.jpg" title="image-7" className="with-caption gallery image-link">
-                      <img className="img-responsive" src="../../Dist/images/luxury-room-4.jpg" alt="luxury-room-img" />
+                      <img className="img-responsive" src="../../Dist/images/images (1).jpg" alt="luxury-room-img" />
                     </a>
                   </div>
                 </div>
               </div>{/* end columns */}
               <div className="col-sm-12 col-md-12 col-lg-6 luxury-text luxury-room-text">
                 <h2>Luxurious Rooms</h2>
-                <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri.</p>
-                <a href="hotel-detail-right-sidebar.html" className="btn btn-black">From $99/Day</a>
-                <a href="hotel-detail-right-sidebar.html" className="btn btn-o-border">View Details</a>
+                <p>Well-appointed comfortable & spacious room with an area of 320 sq. ft. Luxury comes with a complete range of upscale amenities including, Wireless Internet access (Chargeable), Complimentary Mineral Water Bottle, Flat-screen TV, Cable connection, Direct Dialing, Sofa bed, Mini Bar, Tea/Coffee Maker, Express Laundry Service, In-room Safe, Bathrobe, Complimentary Newspaper, Parallel phone line in bathroom, Bath Tub, Bedside lamp, Full length Mirror, Hair Dryer, Safety Lockers, Shower Cubicle, Table lamp, Temp Control, Wooden flooring etc. Child Policy One child below the age of 6 years can stay in parents room without an extra bed on complimentary basis</p>
+                <a href={null} className="btn btn-black">From $99/Day</a>
+                <a href={null} className="btn btn-o-border">View Details</a>
               </div>{/* end columns */}
             </div>{/* end row */}
           </div>{/* end container */}
@@ -634,7 +672,7 @@ render () {
         <section id="hotel-packages" className="section-padding"> 
           <div className="container">
             <div className="row">
-              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">         	
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">           
                 <div className="page-heading">
                   <h2>Our Packages</h2>
                   <hr className="heading-line" />
@@ -712,7 +750,7 @@ render () {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <h2>Subscribe Our Newsletter</h2>
-                <p>Subscibe to receive our interesting updates</p>	
+                <p>Subscibe to receive our interesting updates</p>  
                 <form>
                   <div className="form-group">
                     <div className="input-group">
@@ -726,33 +764,8 @@ render () {
           </div>{/* end container */}
         </section>{/* end newsletter-1 */}
         {/*======================= FOOTER =======================*/}
-        <section id="footer" className="ftr-heading-w ftr-heading-mgn-2">
-          <div id="footer-top" className="banner-padding ftr-top-grey ftr-text-grey">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 col-sm-12 col-md-5 col-lg-5 footer-widget ftr-about ftr-our-company">
-                  <h3 className="footer-heading">OUR COMPANY</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.</p>
-                  <ul className="social-links list-inline list-unstyled">
-                    <li><a href="#"><span><i className="fa fa-facebook" /></span></a></li>
-                    <li><a href="#"><span><i className="fa fa-twitter" /></span></a></li>
-                    <li><a href="#"><span><i className="fa fa-google-plus" /></span></a></li>
-                    <li><a href="#"><span><i className="fa fa-pinterest-p" /></span></a></li>
-                    <li><a href="#"><span><i className="fa fa-instagram" /></span></a></li>
-                    <li><a href="#"><span><i className="fa fa-linkedin" /></span></a></li>
-                    <li><a href="#"><span><i className="fa fa-youtube-play" /></span></a></li>
-                  </ul>
-                </div>{/* end columns */}
-                <div className="col-xs-12 col-sm-12 col-md-7 col-lg-7 footer-widget ftr-map">
-                  <div className="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509729.487836256!2d-123.77686152799836!3d37.1864783963941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia!5e0!3m2!1sen!2s!4v1490695907554" allowFullScreen />
-                  </div>
-                </div>{/* end columns */}
-              </div>{/* end row */}
-            </div>{/* end container */}
-          </div>{/* end footer-top */}
-         <FooterBottom/>
-        </section>{/* end footer */}
+       <FooterBottom/>
+       {/* end footer */}
       </div>
     );
   }

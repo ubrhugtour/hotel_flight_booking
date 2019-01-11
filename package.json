@@ -1,19 +1,12 @@
 {
-  "name": "NetFlix",
+  "name": "FlightHotelBooking",
   "version": "1.0.0",
-  "description": "NetFlix",
+  "description": "Flight Hotel Booking app",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.config.js",
-    "dev": "webpack-dev-server --hot --inline",
-    "lint": "eslint src/**",
-    "lint:watch": "esw -w src/**",
-    "review": "npm run lint && npm test",
-    "start": "npm run build && NODE_ENV=production node server.js",
-    "test": "jest src/**",
-    "test:watch": "jest src/** --watch",
-    "test:watchAll": "jest src/** --watchAll",
-    "test:coverage:report": "open coverage/lcov-report/index.html"
+    "dev": "webpack-dev-server --mode development --open",
+    "start": "node server.js",
+    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -47,7 +40,9 @@
     "redux-thunk": "^2.2.0",
     "style-loader": "^0.18.2",
     "video-react": "^0.13.1",
-    "webpack": "^3.5.5"
+    "webpack": "^3.5.5",
+    "express": "^4.15.5",
+    "node-sass": "^4.5.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
